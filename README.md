@@ -1,8 +1,9 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your GitHub Pages Site</title>
   <style>
     body {
       margin: 0;
@@ -13,18 +14,25 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center; 
+      justify-content: center;
       align-items: center;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
     }
 
     button {
-      background-color: rgba(128, 128, 128, 0.5); /* Gray and transparent background */
+      background-color: #3498db; /* Blue background color */
       color: white;
-      padding: 10px 15px;
-      font-size: 16px;
+      padding: 12px 20px;
+      font-size: 18px;
       border: none;
       cursor: pointer;
       border-radius: 10px; /* Rounded corners */
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    button:hover {
+      background-color: #2980b9; /* Darker blue background on hover */
     }
   </style>
 </head>
@@ -33,7 +41,7 @@
     <!-- Image removed -->
   </div>
   
-  <button onclick="redirectToPage()">Go to main page</button>
+  <button onclick="redirectToPage()">Explore Main Page</button>
 
   <script>
     function redirectToPage() {
