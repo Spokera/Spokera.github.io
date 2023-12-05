@@ -42,6 +42,7 @@
       cursor: pointer;
       border-radius: 10px;
       transition: background-color 0.3s ease; /* Smooth transition */
+      margin-top: 10px; /* Add margin to separate the buttons */
     }
 
     button:hover {
@@ -52,12 +53,19 @@
 <body>
   <h1>Go get a life</h1>
   
-  <!-- Add a button with an onclick event to redirect the user to the specified page -->
-  <button onclick="redirectToPage()">Explore</button>
+  <!-- Original button -->
+  <button onclick="redirectToPage()">Useless Page</button>
+
+  <!-- Duplicate button -->
+  <button onclick="redirectToVideoPage()">Video Page</button>
 
   <script>
     function redirectToPage() {
       window.location.href = "kaka";
+    }
+
+    function redirectToVideoPage() {
+      window.location.href = "https://spokera.github.io/video";
     }
   </script>
 </body>
