@@ -49,8 +49,8 @@
       margin-top: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White box shadow */
+      position: absolute;
       animation: bounce 2s infinite; /* Add bouncing animation */
-      position: relative;
       z-index: 1; /* Set a lower z-index to place the image below other elements */
     }
 
@@ -77,12 +77,31 @@
   <button onclick="redirectToPage()">Go Back to Main Page</button>
   
   <!-- Add a bouncing GIF -->
-  <img src="https://media.tenor.com/SWvpiKa7PkAAAAAd/wawa-cat-wawa.gif" alt="Bouncing GIF">
+  <img id="bouncingGif" src="https://media.tenor.com/SWvpiKa7PkAAAAAd/wawa-cat-wawa.gif" alt="Bouncing GIF">
 
   <script>
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
     }
+
+    // Function to move the bouncing GIF randomly
+    function moveBouncingGif() {
+      const gif = document.getElementById("bouncingGif");
+      const maxX = window.innerWidth - gif.clientWidth;
+      const maxY = window.innerHeight - gif.clientHeight;
+
+      let randomX = Math.floor(Math.random() * maxX);
+      let randomY = Math.floor(Math.random() * maxY);
+
+      gif.style.left = `${randomX}px`;
+      gif.style.top = `${randomY}px`;
+    }
+
+    // Call the function initially
+    moveBouncingGif();
+
+    // Update the position of the GIF every 2 seconds
+    setInterval(moveBouncingGif, 2000);
   </script>
 </body>
 </html>
