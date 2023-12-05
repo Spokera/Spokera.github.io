@@ -24,7 +24,7 @@
       color: white;
       padding: 12px 20px;
       font-size: 18px;
-      border: none;
+      border: 2px solid white;
       cursor: pointer;
       border-radius: 10px; /* Rounded corners */
       transition: background-color 0.3s ease; /* Smooth transition */
