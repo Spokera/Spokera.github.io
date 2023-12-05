@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,7 +20,7 @@
     }
 
     button {
-      background-color: #3498db; /* Blue background color */
+      background-color: #000; /* Black background color */
       color: white;
       padding: 12px 20px;
       font-size: 18px;
@@ -32,7 +31,7 @@
     }
 
     button:hover {
-      background-color: #2980b9; /* Darker blue background on hover */
+      background-color: #333; /* Slightly lighter black background on hover */
     }
   </style>
 </head>
