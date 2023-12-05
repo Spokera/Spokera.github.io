@@ -34,6 +34,8 @@
       border: 2px solid white;
       cursor: pointer;
       border-radius: 10px;
+      position: relative;
+      z-index: 2; /* Set a higher z-index to place the button above other elements */
       transition: background-color 0.3s ease; /* Smooth transition */
     }
 
@@ -48,6 +50,8 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White box shadow */
       animation: bounce 2s infinite; /* Add bouncing animation */
+      position: relative;
+      z-index: 1; /* Set a lower z-index to place the image below other elements */
     }
 
     @keyframes bounce {
@@ -71,7 +75,7 @@
 
   <!-- Update the button's onclick event to redirect the user to the specified page -->
   <button onclick="redirectToPage()">Go Back to Main Page</button>
-
+  
   <!-- Add a bouncing GIF -->
   <img src="https://media.tenor.com/SWvpiKa7PkAAAAAd/wawa-cat-wawa.gif" alt="Bouncing GIF">
 
