@@ -7,18 +7,18 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('https://github.com/aamongusman/amongus/assets/145135579/bd6fc867-0e6d-4beb-b806-987fc43d57ea');
+      background-image: url('https://github.com/Spokera/Spokera.github.io/assets/145135579/9b09c7a1-76ed-46c0-9d38-864be57a2d3e)');
       background-size: cover;
       color: white;
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: center; 
       align-items: center;
-      backdrop-filter: blur(5px); /* Add blurred effect to the background */
     }
 
     button {
+
       background-color: rgba(128, 128, 128, 0.5); /* Gray and transparent background */
       color: white;
       padding: 10px 15px;
