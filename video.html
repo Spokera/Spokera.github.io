@@ -17,7 +17,7 @@
       justify-content: center;
       align-items: center;
       font-family: 'Arial', sans-serif;
-      backdrop-filter: blur(5px); /* Add a subtle blurred effect to the background */
+      backdrop-filter: blur(5px);
     }
 
     h1 {
@@ -29,10 +29,10 @@
     iframe {
       width: 100%;
       max-width: 800px;
-      height: 450px; /* Adjust the height as needed */
+      height: 450px;
       margin-top: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* White box shadow */
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
 
     button {
@@ -43,24 +43,21 @@
       border: 2px solid white;
       cursor: pointer;
       border-radius: 10px;
-      transition: background-color 0.3s ease; /* Smooth transition */
+      transition: background-color 0.3s ease;
       margin-top: 20px;
     }
 
     button:hover {  
-      background-color: #333; /* Darker background on hover */
+      background-color: #333;
     }
   </style>
 </head>
 <body>
   <h1>dk</h1>
   
-  <!-- Add the YouTube video embed code below -->
- <iframe width="560" height="315" src="https://www.youtube.com/embed/TbXRcKXOcnw?si=lA4hhXODFe3HNrg6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TbXRcKXOcnw?si=lA4hhXODFe3HNrg6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-  <!-- Update the button's onclick event to redirect the user to the specified page -->
-  <button onclick="redirectToPage()">Go Back to Main Page</button>
-
+<button onclick="redirectToPage()">Go Back to Main Page</button>
   <script>
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
