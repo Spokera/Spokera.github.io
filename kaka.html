@@ -75,6 +75,8 @@
 <body>
   <h1>dk</h1>
 
+
+  
   <!-- Update the button's onclick event to redirect the user to the specified page -->
   <button onclick="redirectToPage()">Go Back to Main Page</button>
   
@@ -82,9 +84,6 @@
   <img id="bouncingGif" src="https://media.tenor.com/SWvpiKa7PkAAAAAd/wawa-cat-wawa.gif" alt="Bouncing GIF">
 
   <script>
-    function redirectToPage() {
-      window.location.href = "https://spokera.github.io/main";
-    }
 
     // Function to move the bouncing GIF smoothly
     function moveBouncingGif() {
@@ -103,7 +102,32 @@
     moveBouncingGif();
 
     // Update the position of the GIF every 5 seconds for smoother movement
-    setInterval(moveBouncingGif, 5000);
-  </script>
+  function redirectToPage() {
+    window.location.href = "https://spokera.github.io/main";
+  }
+
+  // Function to move the bouncing GIF smoothly
+  function moveBouncingGif() {
+    const gif = document.getElementById("bouncingGif");
+    const maxX = window.innerWidth - gif.clientWidth;
+    const maxY = window.innerHeight - gif.clientHeight;
+
+    let randomX = Math.floor(Math.random() * maxX);
+    let randomY = Math.floor(Math.random() * maxY);
+
+    // Ensure the GIF stays within the bounds
+    randomX = Math.max(0, randomX);
+    randomY = Math.max(0, randomY);
+
+    gif.style.left = `${randomX}px`;
+    gif.style.top = `${randomY}px`;
+  }
+
+  // Call the function initially
+  moveBouncingGif();
+
+  // Update the position of the GIF every 5 seconds for smoother movement
+  setInterval(moveBouncingGif, 5000);
+</script>
 </body>
 </html>
