@@ -54,20 +54,21 @@
       position: absolute;
       animation: moveSmoothly 5s infinite; /* Adjust animation for smoother movement */
       z-index: 1; /* Set a lower z-index to place the image below other elements */
+      animation: bounceAnimation 3s infinite;
     }
 
-   @keyframes moveSmoothly {
+   @keyframes bounceAnimation {
       0%, 100% {
-        transform: translate(0, 0);
+        transform: translateY(0);
       }
       25% {
-        transform: translate(20px, -20px);
+        transform: translateY(-40px);
       }
       50% {
-        transform: translate(40px, 0);
+        transform: translateY(0);
       }
       75% {
-        transform: translate(20px, 20px);
+        transform: translateY(40px);
       }
     }
   </style>
@@ -84,9 +85,9 @@
 
   <script>
 
-    // Function to move the sliding GIF smoothly
-    function moveSlidingGif() {
-      const gif = document.getElementById("slidingGif");
+    // Function to move the bouncing GIF smoothly
+    function moveBouncingGif() {
+      const gif = document.getElementById("bouncingGif");
       const maxX = window.innerWidth - gif.clientWidth;
       const maxY = window.innerHeight - gif.clientHeight;
 
@@ -97,14 +98,15 @@
       randomX = Math.max(0, randomX);
       randomY = Math.max(0, randomY);
 
-      gif.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      gif.style.left = `${randomX}px`;
+      gif.style.top = `${randomY}px`;
     }
 
     // Call the function initially
-    moveSlidingGif();
+    moveBouncingGif();
 
     // Update the position of the GIF every 5 seconds for smoother movement
-    setInterval(moveSlidingGif, 5000);
+    setInterval(moveBouncingGif, 5000);
 
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
