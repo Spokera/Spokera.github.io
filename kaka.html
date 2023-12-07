@@ -69,9 +69,25 @@
     const maxX = window.innerWidth - gif.clientWidth;
     const maxY = window.innerHeight - gif.clientHeight;
 
-    // Add event listener for arrow keys
+    function moveBouncingGif() {
+      let randomX = Math.floor(Math.random() * maxX);
+      let randomY = Math.floor(Math.random() * maxY);
+
+      randomX = Math.max(0, randomX);
+      randomY = Math.max(0, randomY);
+      gif.style.left = `${randomX}px`;
+      gif.style.top = `${randomY}px`;
+    }
+
+    moveBouncingGif();
+    // setInterval(moveBouncingGif, 5000); stopped bounce for funny movement
+
+    function redirectToPage() {
+      window.location.href = "https://spokera.github.io/main";
+    }
+
     document.addEventListener('keydown', function (event) {
-      const step = 10; // Adjust the step size as needed
+      const step = 10; // speed
 
       switch (event.key) {
         case 'ArrowUp':
@@ -88,10 +104,6 @@
           break;
       }
     });
-
-    function redirectToPage() {
-      window.location.href = "https://spokera.github.io/main";
-    }
   </script>
 </body>
 </html>
