@@ -9,6 +9,8 @@
     body {
       margin: 0;
       padding: 0;
+      background-image: url('https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?cs=srgb&dl=pexels-francesco-ungaro-998641.jpg&fm=jpg');
+      background-size: cover;
       color: white;
       height: 100vh;
       display: flex;
@@ -17,7 +19,6 @@
       align-items: center;
       font-family: 'Arial', sans-serif;
       backdrop-filter: blur(0px);
-      overflow: hidden;
     }
 
     h1 {
@@ -63,6 +64,7 @@
   <img id="bouncingGif" src="https://cdn3.emoji.gg/emojis/3518-wawa-cat.gif" alt="Bouncing GIF">
 
   <script>
+
     const gif = document.getElementById("bouncingGif");
     const maxX = window.innerWidth - gif.clientWidth;
     const maxY = window.innerHeight - gif.clientHeight;
@@ -77,13 +79,8 @@
       gif.style.top = `${randomY}px`;
     }
 
-    // Continuous scrolling function
-    function continuousScroll() {
-      moveBouncingGif();
-      requestAnimationFrame(continuousScroll);
-    }
-
-    continuousScroll();
+    moveBouncingGif();
+    // setInterval(moveBouncingGif, 5000); stopped bounce for funny movement
 
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
