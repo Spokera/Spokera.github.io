@@ -67,20 +67,21 @@
 
     const gif = document.getElementById("bouncingGif");
 
-    function moveBouncingGif() {
-      const maxX = window.innerWidth - gif.clientWidth;
-      const maxY = window.innerHeight - gif.clientHeight;
+    // Remove the random movement function
+    // function moveBouncingGif() {
+    //   const maxX = window.innerWidth - gif.clientWidth;
+    //   const maxY = window.innerHeight - gif.clientHeight;
 
-      let randomX = Math.floor(Math.random() * maxX);
-      let randomY = Math.floor(Math.random() * maxY);
+    //   let randomX = Math.floor(Math.random() * maxX);
+    //   let randomY = Math.floor(Math.random() * maxY);
 
-      randomX = Math.max(0, randomX);
-      randomY = Math.max(0, randomY);
-      gif.style.left = `${randomX}px`;
-      gif.style.top = `${randomY}px`;
-    }
+    //   randomX = Math.max(0, randomX);
+    //   randomY = Math.max(0, randomY);
+    //   gif.style.left = `${randomX}px`;
+    //   gif.style.top = `${randomY}px`;
+    // }
 
-    moveBouncingGif();
+    // moveBouncingGif();
     // setInterval(moveBouncingGif, 5000); // stopped bounce for funny movement
 
     function redirectToPage() {
@@ -96,13 +97,13 @@
           gif.style.top = `${Math.max(0, parseInt(gif.style.top) - step)}px`;
           break;
         case 'ArrowDown':
-          gif.style.top = `${Math.min(maxY, parseInt(gif.style.top) + step)}px`;
+          gif.style.top = `${Math.min(window.innerHeight - gif.clientHeight, parseInt(gif.style.top) + step)}px`;
           break;
         case 'ArrowLeft':
           gif.style.left = `${Math.max(0, parseInt(gif.style.left) - step)}px`;
           break;
         case 'ArrowRight':
-          gif.style.left = `${Math.min(maxX, parseInt(gif.style.left) + step)}px`;
+          gif.style.left = `${Math.min(window.innerWidth - gif.clientWidth, parseInt(gif.style.left) + step)}px`;
           break;
       }
     });
