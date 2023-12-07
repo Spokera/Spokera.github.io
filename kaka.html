@@ -76,7 +76,6 @@
 <body>
   <h1>dk</h1>
 
-  
   <button onclick="redirectToPage()">Go Back to Main Page</button>
   
   <img id="bouncingGif" src="https://cdn3.emoji.gg/emojis/3518-wawa-cat.gif" alt="Bouncing GIF">
@@ -91,13 +90,11 @@
       let randomX = Math.floor(Math.random() * maxX);
       let randomY = Math.floor(Math.random() * maxY);
 
-
       randomX = Math.max(0, randomX);
       randomY = Math.max(0, randomY);
       gif.style.left = `${randomX}px`;
       gif.style.top = `${randomY}px`;
     }
-
 
     moveBouncingGif();
     setInterval(moveBouncingGif, 5000);
