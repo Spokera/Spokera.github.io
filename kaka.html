@@ -53,22 +53,6 @@
       border-radius: 10px;
       position: absolute;
       z-index: 1;
-      animation: bounceAndMove 5s infinite;
-    }
-
-    @keyframes bounceAndMove {
-      0%, 100% {
-        transform: translateY(0) translateX(0);
-      }
-      25% {
-        transform: translateY(-40px) translateX(-20px);
-      }
-      50% {
-        transform: translateY(0) translateX(0);
-      }
-      75% {
-        transform: translateY(40px) translateX(20px);
-      }
     }
   </style>
 </head>
@@ -96,7 +80,7 @@
     }
 
     moveBouncingGif();
-    setInterval(moveBouncingGif, 5000);
+    // setInterval(moveBouncingGif, 5000); // stopped bounce for funny movement
 
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
