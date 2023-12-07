@@ -53,6 +53,7 @@
       border-radius: 10px;
       position: absolute;
       z-index: 1;
+      transition: transform 0.2s ease;
     }
   </style>
 </head>
@@ -70,13 +71,9 @@
     const maxY = window.innerHeight - gif.clientHeight;
 
     function moveBouncingGif() {
-      let randomX = Math.floor(Math.random() * maxX);
-      let randomY = Math.floor(Math.random() * maxY);
-
-      randomX = Math.max(0, randomX);
-      randomY = Math.max(0, randomY);
-      gif.style.left = `${randomX}px`;
-      gif.style.top = `${randomY}px`;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      gif.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
 
     moveBouncingGif();
@@ -91,18 +88,23 @@
 
       switch (event.key) {
         case 'ArrowUp':
-          gif.style.top = `${Math.max(0, parseInt(gif.style.top) - step)}px`;
+          gif.style.transform = `translate(0, -${step}px)`;
           break;
         case 'ArrowDown':
-          gif.style.top = `${Math.min(maxY, parseInt(gif.style.top) + step)}px`;
+          gif.style.transform = `translate(0, ${step}px)`;
           break;
         case 'ArrowLeft':
-          gif.style.left = `${Math.max(0, parseInt(gif.style.left) - step)}px`;
+          gif.style.transform = `translate(-${step}px, 0)`;
           break;
         case 'ArrowRight':
-          gif.style.left = `${Math.min(maxX, parseInt(gif.style.left) + step)}px`;
+          gif.style.transform = `translate(${step}px, 0)`;
           break;
       }
+    });
+
+    gif.addEventListener('transitionend', () => {
+      gif.style.transform = 'translate(0, 0)';
+      moveBouncingGif();
     });
   </script>
 </body>
