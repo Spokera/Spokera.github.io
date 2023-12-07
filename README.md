@@ -20,24 +20,23 @@
     }
 
     button {
-      background-color: #000; /* Black background color */
+      background-color: #000;
       color: white;
       padding: 12px 20px;
       font-size: 18px;
       border: 2px solid white;
       cursor: pointer;
-      border-radius: 10px; /* Rounded corners */
-      transition: background-color 0.3s ease; /* Smooth transition */
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #333; /* Slightly lighter black background on hover */
+      background-color: #333;
     }
   </style>
 </head>
 <body>
   <div style="padding: 20px;">
-    <!-- Image removed -->
   </div>
   
   <button onclick="redirectToPage()">Explore Main Page</button>
