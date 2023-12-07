@@ -54,36 +54,6 @@
       position: absolute;
       z-index: 1;
     }
-
-
-    .hidden {
-      display: none;
-    }
-
-
-    #video-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 4;
-    }
-
-
-    #close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 5;
-    }
   </style>
 </head>
 <body>
@@ -92,12 +62,6 @@
   <button onclick="redirectToPage()">Go Back to Main Page</button>
   
   <img id="bouncingGif" src="https://cdn3.emoji.gg/emojis/3518-wawa-cat.gif" alt="Bouncing GIF">
-
-  <!-- Add a hidden YouTube video element -->
-  <div id="video-container" class="hidden">   
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/D9lVNzyhYnc?si=Ur8AT8JdfQ0MpcAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <div id="close-btn" onclick="closeVideo()">X</div>
-  </div>
 
   <script>
 
@@ -113,21 +77,10 @@
       randomY = Math.max(0, randomY);
       gif.style.left = `${randomX}px`;
       gif.style.top = `${randomY}px`;
-
-      if (randomX > maxX - 50 && randomY > maxY - 50) {
-        showVideo();
-      }
     }
 
     moveBouncingGif();
-
-    function showVideo() {
-      document.getElementById("video-container").classList.remove("hidden");
-    }
-
-    function closeVideo() {
-      document.getElementById("video-container").classList.add("hidden");
-    }
+    // setInterval(moveBouncingGif, 5000); stopped bounce for funny movement
 
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
