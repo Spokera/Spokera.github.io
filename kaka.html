@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,9 +41,10 @@
       position: relative;
       z-index: 2;
       transition: background-color 0.3s ease;
+      margin-bottom: 10px;
     }
 
-    button:hover {  
+    button:hover {
       background-color: #333;
     }
 
@@ -54,20 +56,28 @@
       position: absolute;
       z-index: 1;
     }
+
+    input[type="range"] {
+      width: 80%;
+      margin-top: 10px;
+    }
   </style>
 </head>
+
 <body>
   <h1>dk</h1>
 
   <button onclick="redirectToPage()">Go Back to Main Page</button>
-  
+
+  <input type="range" id="speedSlider" min="1" max="10" value="5">
+
   <img id="bouncingGif" src="https://cdn3.emoji.gg/emojis/3518-wawa-cat.gif" alt="Bouncing GIF">
 
   <script>
-
     const gif = document.getElementById("bouncingGif");
     const maxX = window.innerWidth - gif.clientWidth;
     const maxY = window.innerHeight - gif.clientHeight;
+    const speedSlider = document.getElementById("speedSlider");
 
     function moveBouncingGif() {
       let randomX = Math.floor(Math.random() * maxX);
@@ -79,14 +89,20 @@
       gif.style.top = `${randomY}px`;
     }
 
-    moveBouncingGif();
-    // setInterval(moveBouncingGif, 5000); stopped bounce for funny movement
+    function updateSpeed() {
+      const speed = parseInt(speedSlider.value);
+      clearInterval(bouncingInterval);
+      bouncingInterval = setInterval(moveBouncingGif, 1000 / speed);
+    }
+
+    let bouncingInterval;
+    updateSpeed();
 
     function redirectToPage() {
       window.location.href = "https://spokera.github.io/main";
     }
 
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function(event) {
       const step = 10; // speed
 
       switch (event.key) {
@@ -104,6 +120,8 @@
           break;
       }
     });
+
+    speedSlider.addEventListener('input', updateSpeed);
   </script>
 </body>
 </html>
