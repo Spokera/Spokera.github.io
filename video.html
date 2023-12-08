@@ -56,7 +56,7 @@
 </head>
 
 <body>
-    <h1>Sequential mrbeast videos</h1>
+    <h1>Random mrbeast video finder (only semi-new ones)</h1>
 
     <iframe id="youtubePlayer" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,16 +84,25 @@
             "vBpQ1SlfVtU",
         ];
 
-        let currentVideoIndex = 0;
-
-        function setNextVideo() {
-            const youtubePlayer = document.getElementById("youtubePlayer");
-            const embedUrl = `https://www.youtube.com/embed/${videoIds[currentVideoIndex]}?autoplay=1`;
-            youtubePlayer.src = embedUrl;
-            currentVideoIndex = (currentVideoIndex + 1) % videoIds.length;
+        let previousVideoId = "";
+        
+        function getRandomVideoId() {
+            let randomVideoId;
+            do {
+                randomVideoId = videoIds[Math.floor(Math.random() * videoIds.length)];
+            } while (randomVideoId === previousVideoId);
+            previousVideoId = randomVideoId;
+            return randomVideoId;
         }
 
-        setNextVideo();
+        function setRandomVideo() {
+            const youtubePlayer = document.getElementById("youtubePlayer");
+            const randomVideoId = getRandomVideoId();
+            const embedUrl = `https://www.youtube.com/embed/${randomVideoId}?autoplay=1`;
+            youtubePlayer.src = embedUrl;
+        }
+
+        setRandomVideo();
     </script>
 </body>
 </html>
