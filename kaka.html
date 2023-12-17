@@ -54,9 +54,49 @@
       position: absolute;
       z-index: 1;
     }
+
+    .snowball {
+      position: absolute;
+      background-color: #fff;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
+  <script>
+    function createSnowball() {
+      const snowball = document.createElement('div');
+      snowball.className = 'snowball';
+      snowball.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(snowball);
+
+      const animation = snowball.animate(
+        [
+          { top: '-10px' },
+          { top: window.innerHeight + 'px' }
+        ],
+        {
+          duration: Math.random() * 5000 + 5000,
+          easing: 'linear',
+          fill: 'forwards'
+        }
+      );
+
+      animation.onfinish = function () {
+        document.body.removeChild(snowball);
+      };
+    }
+
+    function createSnowfall() {
+      setInterval(createSnowball, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', createSnowfall);
+  </script>
+
   <h1>dk</h1>
 
   <button onclick="redirectToPage()">Go Back to Main Page</button>
